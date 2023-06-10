@@ -18,6 +18,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        // csrf : input form에 서버에서 보낸 form이라는 것을 확인하기 위한 토큰 -> 나중에 복잡해져서 일단 제거
         http.csrf().disable().cors().disable();
 
         return http.authorizeHttpRequests((request) -> {
