@@ -22,8 +22,10 @@ public class SecurityConfig {
         http.csrf().disable().cors().disable();
 
         return http.authorizeHttpRequests((request) -> {
+            // 권한이 필요한 경로 지정
             request.requestMatchers("/", "/user/**", "/image/**", "/subscribe/**", "/comment/**").authenticated();
 
+            // 나머지 경로 허락
             request.anyRequest().permitAll();
         }).formLogin((formLogin) -> {
             formLogin.loginPage("/auth/signin");
