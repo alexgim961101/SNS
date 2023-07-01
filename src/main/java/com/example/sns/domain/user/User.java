@@ -38,9 +38,11 @@ public class User {
     private String role;
 
     @CreationTimestamp  // INSERT 시 자동으로 값을 채워줌
+    @Column(updatable = false)
     private LocalDateTime createdAt;
 
     @UpdateTimestamp  // UPDATE 시 자동으로 값을 채워줌
+    @Column(updatable = true)
     private LocalDateTime updatedAt;
 
 //    @PrePersist // 디비에 INSERT 되기 직전에 실행

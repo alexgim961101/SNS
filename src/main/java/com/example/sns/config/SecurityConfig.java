@@ -29,6 +29,7 @@ public class SecurityConfig {
             request.anyRequest().permitAll();
         }).formLogin((formLogin) -> {
             formLogin.loginPage("/auth/signin");
+            formLogin.loginProcessingUrl("/auth/signin");  // 스프링 시큐리티가 로그인 프로세스를 진행
             formLogin.defaultSuccessUrl("/");
         }).build();
 
